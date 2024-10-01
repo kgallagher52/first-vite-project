@@ -151,3 +151,12 @@ export default tseslint.config({
             })}
           </div>
   ```
+
+### Styling Your Vite Application Section 4
+
+- css modules
+  - Separate modules so don't have general css this is done by vite creating unique names to classes or ids in css files
+
+### Publishing Your Vite Application Section 5
+
+### Advanced Features Section 6

@@ -2,6 +2,9 @@ import { useState } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
+import moduleOne from "./one.module.css";
+import moduleTwo from "./two.module.css";
+
 // Dynamic imports glob pattern by default lazy loads the images but you can add {eager: true} after the path to not lazy load them
 const modules = import.meta.glob<{ default: string }>("./png-images/*.png", { eager: true });
 function App() {
@@ -19,10 +22,10 @@ function App() {
 					);
 				})}
 			</div>
-			<h1>Vite + React</h1>
+			<h1 className={moduleOne.highlight}>Vite + React</h1>
 			<div className="card">
 				<button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-				<p>
+				<p className={moduleTwo.highlight}>
 					Edit <code>src/App.tsx</code> and save to test HMR
 				</p>
 			</div>
