@@ -156,6 +156,28 @@ export default tseslint.config({
 
 - css modules
   - Separate modules so don't have general css this is done by vite creating unique names to classes or ids in css files
+- css variables
+
+```css
+/* Declaring this in the App.css under #root will make this variable avaiable to all css modules */
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+	--my-variable: #61dafb;
+}
+/* Basic example of using these variables */
+.highlight {
+	color: green;
+}
+
+.selector {
+	--my-color: blue;
+
+	color: var(--my-color);
+}
+```
 
 ### Publishing Your Vite Application Section 5
 
