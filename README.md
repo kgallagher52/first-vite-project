@@ -65,8 +65,9 @@ export default tseslint.config({
 
 - What is Vite?
   - The word for vite in French is fast.
-  - Created by Even You in June 2020 also created Vue.js
+  - Created by Evan You in June 2020 also created Vue.js
   - Vite was alternative from Webpack among others
+  - Its a bundler making all js or ts files into small files
   - Faster because it uses native ES modules are standardized format for sharing JS code.
 - Vite VS Webpack
   - Primary bundlers to turn large set of js files into smaller production files
@@ -95,3 +96,15 @@ export default tseslint.config({
   - VueJS
   - React
   - Svelte
+
+### Developing with Vite Section 3
+
+- Using static assets
+  - two ways to include static files
+    1. public directory
+    2. Importing an asset during your application will also include when built
+  - Tree Shaking
+    - Removal of dead code and vite uses it when you run a build so If I imported an asset before in a component and then got rid of it next build that wont be included
+- Creating Multiple Routes
+  - Vite uses rollup underneath the hood
+  - Can pass in the vite.config.ts the rollupOptions
