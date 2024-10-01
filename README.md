@@ -179,6 +179,10 @@ export default tseslint.config({
 }
 ```
 
+- css nesting
+
 ### Publishing Your Vite Application Section 5
+
+Refer to cloned repo git@github.com:traintocode/sample-projects.git for the last sections of this course
 
 ### Advanced Features Section 6
