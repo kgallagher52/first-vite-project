@@ -4,7 +4,6 @@ import { useState } from "react";
 import "./App.css";
 import moduleOne from "./one.module.css";
 import moduleTwo from "./two.module.css";
-
 // Dynamic imports glob pattern by default lazy loads the images but you can add {eager: true} after the path to not lazy load them
 const modules = import.meta.glob<{ default: string }>("./png-images/*.png", { eager: true });
 function App() {
@@ -16,6 +15,7 @@ function App() {
 				{Object.values(modules).map((src) => {
 					return (
 						<img
+							key={src.default}
 							src={src.default}
 							alt="logo"
 						/>
