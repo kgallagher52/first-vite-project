@@ -1,0 +1,9 @@
+.highlight {
+	color: green;
+}
+
+.selector {
+	--my-color: blue;
+
+	color: var(--my-color);
+}
