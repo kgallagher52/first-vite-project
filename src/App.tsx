@@ -1,32 +1,23 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
 import "./App.css";
-
+// Dynamic imports glob pattern by default lazy loads the images but you can add {eager: true} after the path to not lazy load them
+const modules = import.meta.glob<{ default: string }>("./png-images/*.png", { eager: true });
 function App() {
 	const [count, setCount] = useState(0);
 
 	return (
 		<>
 			<div>
-				<a
-					href="https://vitejs.dev"
-					target="_blank">
-					<img
-						src={viteLogo}
-						className="logo"
-						alt="Vite logo"
-					/>
-				</a>
-				<a
-					href="https://react.dev"
-					target="_blank">
-					<img
-						src={reactLogo}
-						className="logo react"
-						alt="React logo"
-					/>
-				</a>
+				{Object.values(modules).map((src) => {
+					return (
+						<img
+							src={src.default}
+							alt="logo"
+						/>
+					);
+				})}
 			</div>
 			<h1>Vite + React</h1>
 			<div className="card">

@@ -2,6 +2,10 @@
 
 Learning more about Vite
 
+## Important
+
+- Vite uses Rollup as the bundling tool
+
 ## Vite Resources
 
     # React + TypeScript + Vite
@@ -107,4 +111,43 @@ export default tseslint.config({
     - Removal of dead code and vite uses it when you run a build so If I imported an asset before in a component and then got rid of it next build that wont be included
 - Creating Multiple Routes
   - Vite uses rollup underneath the hood
-  - Can pass in the vite.config.ts the rollupOptions
+  - Can pass in the vite.config.ts the rollupOptions inputs set new entry points (only needed for production build)
+- Dynamic Imports
+
+  - by adding target esnext to build in vite.config.ts we tell it to use modern web browsers
+
+  - Example of using a Top Level Await import (not supported by all browsers)
+
+  ```jsx
+  // Dynamic imports top level await not supported in every web browser as is because we know that it is a string
+  const logoName = "wing1";
+  const module = (await import(`./png-images/${logoName}.png`)) as { default: string };
+    // html
+    return {
+      <div>
+        <img src={module.default} alt="" />
+      </div>
+    }
+  ```
+
+  - Example of using a Blob pattern imports
+
+  ```jsx
+      // Dynamic imports glob pattern by default lazy loads the images but you can add {eager: true} after the path to not lazy load them
+    const modules = import.meta.glob<{ default: string }>("./png-images/*.png", { eager: true });
+    function App() {
+      const [count, setCount] = useState(0);
+
+      return (
+        <>
+          <div>
+            {Object.values(modules).map((src) => {
+              return (
+                <img
+                  src={src.default}
+                  alt="logo"
+                />
+              );
+            })}
+          </div>
+  ```
