@@ -195,6 +195,7 @@ export default tseslint.config({
 - .env.production - production env file
 - Example
   - <h1>Main Route {import.meta.env.VITE_FAKE_ENV}</h1>
+- By default Vite does not expose env variables to the frontend code to override this you prefix the env variable with VITE as shown above
 
 1. npm run build
 
