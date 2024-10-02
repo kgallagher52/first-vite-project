@@ -200,3 +200,11 @@ export default tseslint.config({
 1. npm run build
 
 ### Advanced Features Section 6
+
+#### Using & Creating Plugins
+
+- [Vite Plugin Docs](https://vitejs.dev/plugins/)
+- [Vite Plugins community created for rollup](https://github.com/vitejs/awesome-vite)
+- splitVendorPlugin()
+- react()
+-
