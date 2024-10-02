@@ -179,10 +179,23 @@ export default tseslint.config({
 }
 ```
 
-- css nesting
-
 ### Publishing Your Vite Application Section 5
 
-Refer to cloned repo git@github.com:traintocode/sample-projects.git for the last sections of this course
+- `pnpm run preview` shows production build
+- You can use vite to split out your code from third party libraries for instance React you can see that the size of my bundle was 143 kb this is because it's bundling React
+- Third party tools such as React are called Vendors in the build tool world
+- Separating React into a separate Javascript out put using Vite is called a **vendor chunk** or **vendor package**
+- We can accomplish splitting out the React piece by using the rollupOptions
+- You will see a index js and a vendor js file once you have added `plugins: [react(), splitVendorChunkPlugin()],` to the vite config
+- Important note about the two separate js files you can see the hash that is created only changes if you change vendor code or core code'
+
+#### env variables
+
+- .env.development - development env file
+- .env.production - production env file
+- Example
+  - <h1>Main Route {import.meta.env.VITE_FAKE_ENV}</h1>
+
+1. npm run build
 
 ### Advanced Features Section 6
